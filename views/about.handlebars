@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+<title> </title>
+<link rel='stylesheet' type="text/css" href="/public/style.css"></link>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+<body>
+<h1 id="two">Hi I am in about page</h1>
+<p id="one">i can do anything</p>
+<p>title{{title}}</p>
+<button id="three">Click on that </button>
+
+<script>
+
+$('#one').click(function(){
+ $('#two').addClass('hide')
+ 
+});
+
+
+
+$('#three').click(function(){
+ $.ajax({
+     url  : 'https://jsonplaceholder.typicode.com/posts',
+     type :'GET',
+     dataType :'json',
+    success : function(data) {              
+        console.log(data);
+        //alert('Data: '+data);
+    },
+    error : function(request,error)
+    {
+        alert("Request: "+JSON.stringify(request));
+    }
+ });
+});
+
+</script>
+
+</body>
+</html>
